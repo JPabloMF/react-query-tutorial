@@ -7,7 +7,11 @@ const fetchPlanets = async () => {
 };
 
 const Planets = () => {
-  const { data, status } = useQuery('planets', fetchPlanets);
+  const { data, status } = useQuery('planets', fetchPlanets, {
+    // staleTime: 5000, how much time pass to consider old data
+    // cacheTime: 5000, keep cache for 5 seconds
+    // onSuccess: () => console.log('data fetched with no problemo')
+  });
 
   return (
     <div>
